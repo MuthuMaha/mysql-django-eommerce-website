@@ -1,1 +1,1 @@
-# django-ecommerce-website
+# mysql-django-eommerce-website
