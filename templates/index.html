@@ -4,21 +4,23 @@
 <main class="main">
     <div class="home-slider-container">
         <div class="home-slider owl-carousel">
+            {% for sl in sli %}
             <div class="home-slide">
-                <div class="slide-bg owl-lazy" data-src="{% static '/images/slider/slide-1.jpg' %}"></div>
+                <div class="slide-bg owl-lazy" data-src="{{sl.img.file}}" style="background-image: url("
+                    {{sl.img.file}}"); opacity: 1;"></div>
                 <!-- End .slide-bg -->
                 <div class="home-slide-content container">
                     <div class="row">
                         <div class="col-md-6 offset-md-6 col-lg-5 offset-lg-7">
-                            <h4>Premium</h4>
-                            <h1>Headphones</h1>
-                            <h3>Only <strong>199 USD</strong></h3>
+                            <h4>{{ sl.name }}</h4>
+                            <h1>{{sl.desc }}</h1>
+                            <h3>Only <strong>{{ sl.price}} USD</strong></h3>
                             <a href="category.html" class="btn btn-primary">Shop Now</a>
                         </div><!-- End .col-lg-5 -->
                     </div><!-- End .row -->
                 </div><!-- End .home-slide-content -->
             </div><!-- End .home-slide -->
-
+            {% endfor %}
             <div class="home-slide">
                 <div class="slide-bg owl-lazy" data-src="{% static '/images/slider/slide-2.jpg' %}"></div>
                 <!-- End .slide-bg -->
@@ -81,23 +83,24 @@
                 aria-labelledby="featured-products-tab">
                 <div class="container">
                     <div class="tab-products-carousel owl-carousel owl-theme">
+                        {% for fe in fea %}
                         <div class="product-default">
                             <figure>
                                 <a href="product.html">
-                                    <img src="{% static 'images/products/product-10.jpg' %}">
+                                    <img src="{{fe.img.file}}">
                                 </a>
                             </figure>
                             <div class="product-details">
                                 <div class="ratings-container">
                                     <div class="product-ratings">
-                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                                        <span class="ratings" style="width:{{fe.rating}}%"></span><!-- End .ratings -->
                                     </div><!-- End .product-ratings -->
                                 </div><!-- End .product-container -->
                                 <h2 class="product-title">
-                                    <a href="product.html">Product Short Name</a>
+                                    <a href="product.html">{{fe.name}}</a>
                                 </h2>
                                 <div class="price-box">
-                                    <span class="product-price">$32.00</span>
+                                    <span class="product-price">${{fe.price}}</span>
                                 </div><!-- End .price-box -->
                                 <div class="product-action">
                                     <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
@@ -108,6 +111,7 @@
                                 </div>
                             </div><!-- End .product-details -->
                         </div>
+                        {% endfor %}
                         <div class="product-default">
                             <figure>
                                 <a href="product.html">
@@ -303,23 +307,24 @@
                                 </div>
                             </div><!-- End .product-details -->
                         </div>
+                        {% for la in lat %}
                         <div class="product-default">
                             <figure>
                                 <a href="product.html">
-                                    <img src="{% static 'images/products/product-11.jpg' %}">
+                                    <img src="{{la.img.file}}">
                                 </a>
                             </figure>
                             <div class="product-details">
                                 <div class="ratings-container">
                                     <div class="product-ratings">
-                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                                        <span class="ratings" style="width:{{fa.rating}}%"></span><!-- End .ratings -->
                                     </div><!-- End .product-ratings -->
                                 </div><!-- End .product-container -->
                                 <h2 class="product-title">
-                                    <a href="product.html">Product Short Name</a>
+                                    <a href="product.html">{{la.name}}</a>
                                 </h2>
                                 <div class="price-box">
-                                    <span class="product-price">$32.00</span>
+                                    <span class="product-price">${{la.price}}</span>
                                 </div><!-- End .price-box -->
                                 <div class="product-action">
                                     <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
@@ -330,6 +335,7 @@
                                 </div>
                             </div><!-- End .product-details -->
                         </div>
+                        {% endfor %}
                         <div class="product-default">
                             <figure>
                                 <a href="product.html">

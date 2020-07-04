@@ -1,11 +1,15 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
+from .models import Product
 from django.contrib import messages
 
 # Create your views here.
 
 def index(request):
-    return render(request,'index.html')
+    fea=Product.objects.filter(flag="F")
+    sli=Product.objects.filter(flag="S")
+    lat=Product.objects.filter(flag="L")
+    return render(request,'index.html',{'fea':fea,'lat':lat,'sli':sli})
 def register(request):
     if request.method=='POST':
         first_name=request.POST['first_name']
